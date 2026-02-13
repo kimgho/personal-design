@@ -37,21 +37,32 @@ Implementation checklist:
 - Use `@design/tokens` instead of hardcoded style values.
 - Keep visible `:focus-visible` behavior for interactive UI.
 - Use `@vanilla-extract/recipes` for variant/size/state patterns.
+- Use headless-first composition for stateful/interactive behavior (Ark UI or Radix patterns).
+- Keep behavior logic/headless layer separate from style layer.
+- Follow design-system API conventions (`variant`, `size`, optional `tone`).
+- Use anatomy-based parts for complex components (`Root`, `Trigger`, `Content`, etc.).
+- Support controlled/uncontrolled patterns when state should be externally managed.
 
-## 4. Apply Conditional Patterns
+## 4. Create Stories And Tests
+
+After component implementation:
+
+- Add or update Storybook stories for the component.
+- Add or update component tests where applicable.
+- Include at least default and interactive states in stories.
 
 Apply only when needed:
 
-- Add anatomy/headless composition for complex multi-part components.
 - Add `as` or `asChild` only if polymorphism/composition is required.
-- Add or update stories/docs for new public components or major behavior changes.
 
-## 5. Validate
+## 5. Run Validation Gate
 
-If validation is requested, run:
+Run these in order after stories/tests are updated:
 
 ```bash
 pnpm --filter @design/components build
+bash .agent/scripts/verify-component-conventions.sh
+bash .agent/scripts/verify-semantic-usage.sh
 ```
 
-If UI changed significantly, run `web-design-guidelines` skill.
+If UI changed significantly, run `web-design-guidelines` skill (`.agent/skills/web-design-guidelines`) after the gate passes.

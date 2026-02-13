@@ -23,6 +23,17 @@ Hard Rules
 - Keep visible `:focus-visible` treatment.
 - Do not remove focus outline without an accessible alternative.
 - Use semantic interactive elements (`button`, `a`, proper form semantics).
+
+5. Use headless-first architecture for stateful/interactive components.
+- Implement behavior with headless primitives (Ark UI or Radix patterns).
+- Keep behavior logic separate from visual styling.
+- Do not implement complex keyboard/focus behavior ad-hoc in styled components.
+
+6. Follow design-system component conventions.
+- Use anatomy-based composition for complex components (`Root`, `Trigger`, `Content`, etc.).
+- Keep API axes consistent (`variant`, `size`, optional `tone`).
+- Support controlled/uncontrolled patterns when component state is externally useful.
+- Prefer `asChild`/slot composition when polymorphism is required.
 </critical>
 
 <normal>
@@ -41,21 +52,13 @@ Conditional Rules
 
 Apply these only when relevant:
 
-1. Complex multi-part components:
-- Use anatomy-based composition (`Root`, `List`, `Trigger`, `Content` style split).
-- Separate behavior/headless logic from styling.
-
-2. If headless primitives are already used in that area:
-- Follow existing patterns with Ark UI or Radix.
-- Keep API compatible with current component conventions.
-
-3. Documentation and stories:
+1. Documentation and stories:
 - Add or update stories/docs when adding a new public component or significantly changing behavior.
 
-4. Performance-sensitive assets:
+2. Performance-sensitive assets:
 - Set explicit image dimensions and use lazy loading for off-screen content where applicable.
 </important>
 
 Skills
 
-- `web-design-guidelines`: run when validating UI/UX compliance for new or heavily refactored UI components.
+- `web-design-guidelines` (`.agent/skills/web-design-guidelines`): run when validating UI/UX compliance for new or heavily refactored UI components.
