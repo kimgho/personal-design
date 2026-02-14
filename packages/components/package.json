@@ -1,0 +1,44 @@
+{
+  "name": "@design/components",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@design/tokens": "workspace:*",
+    "@vanilla-extract/recipes": "^0.5.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
+    "@vanilla-extract/css": "^1.18.0",
+    "@vanilla-extract/vite-plugin": "^5.1.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "latest",
+    "vite": "^7.3.1",
+    "vite-plugin-dts": "^4.5.4",
+    "storybook": "^10.2.8",
+    "@storybook/react-vite": "^10.2.8",
+    "@chromatic-com/storybook": "^5.0.1",
+    "@storybook/addon-vitest": "^10.2.8",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "eslint-plugin-storybook": "^10.2.8",
+    "vitest": "^4.0.18",
+    "playwright": "^1.58.2",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18"
+  }
+}
